@@ -14,7 +14,7 @@ class BaseContact:
     def contact(self):
         print(f"Wybieram numer {self.phone} i dzwonię do {self.name} {self.surname}")
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.name} {self.surname} {self.phone} {self.email_address}"
 
     @property
@@ -34,7 +34,7 @@ class BusinessContact(BaseContact):
             f"Wybieram numer {self.work_phone} i dzwonię do {self.name} {self.surname}"
         )
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.name} {self.surname} {self.position} {self.company_name} {self.work_phone} {self.email_address}"
 
 
@@ -67,9 +67,5 @@ def create_contacts(contact_type, number_of_contacts_to_generate):
 
 
 if __name__ == "__main__":
-    base = create_contacts("base", 5)
-    for contact in base:
-        print(contact)
     business = create_contacts("business", 5)
-    for contact in business:
-        print(contact)
+    print(business)
